@@ -2,34 +2,68 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
-    private Vector2 movement;
-    private Vector2 mousePosition;
+    [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float moveSpeed = 5f;
 
-    private void Start()
+    private PlayerInputActions playerInputActions;
+    private InputAction movement;
+    private InputAction mousePosition;
+
+    private Vector2 worldMousePosition;
+
+
+    private void OnEnable()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        movement = playerInputActions.Player.Movement;
+        movement.Enable();
+
+        mousePosition = playerInputActions.Player.MousePosition;
+        mousePosition.Enable();
+
+        playerInputActions.Player.Shooting.performed += Shoot;
+        playerInputActions.Player.Shooting.Enable();
+
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        movement.Disable();
+        mousePosition.Disable();
+        playerInputActions.Player.Shooting.Disable();
     }
 
-    private void FixedUpdate() {
-        rigidBody.MovePosition(rigidBody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
 
-        Vector2 lookDirection = mousePosition - rigidBody.position;
+    private void FixedUpdate()
+    {
+        PlayerMovement();
+        PlayerRotation();
+    }
+
+    private void PlayerMovement()
+    {
+        rigidBody.MovePosition(rigidBody.position + movement.ReadValue<Vector2>().normalized * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void PlayerRotation()
+    {
+        worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition.ReadValue<Vector2>());
+
+        Vector2 lookDirection = worldMousePosition - rigidBody.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rigidBody.rotation = angle;
     }
 
+    private void Shoot(InputAction.CallbackContext obj)
+    {
+        this.GetComponent<Shooting>().Shoot();
+    }
 }
