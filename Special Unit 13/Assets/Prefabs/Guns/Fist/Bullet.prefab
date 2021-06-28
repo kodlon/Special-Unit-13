@@ -145,3 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 7285759447365213743, guid: 8e4d1f14de09ecd458cf8a8ef207d3e8, type: 3}
+  damage: 0
+  bulletForce: 10
+  bulletDestroyTime: 0.1
+  effectDestroyTime: 0.1

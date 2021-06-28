@@ -8,12 +8,11 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private int chosenGun;
 
-
     public void Shoot(bool AutoFire)
     {
-        GameObject bullet = Instantiate(guns[chosenGun].BulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(guns[chosenGun].BulletPrefab.gameObject, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * guns[chosenGun].BulletForce, ForceMode2D.Impulse);
+        rb.AddForce(firePoint.up * guns[chosenGun].BulletPrefab.BulletForce, ForceMode2D.Impulse);
     }
 
 }
