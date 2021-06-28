@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    [SerializeField] private Gun[] guns;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletForce = 20f;
+    [SerializeField] private int chosenGun;
 
 
-    public void Shoot()
+    public void Shoot(bool AutoFire)
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(guns[chosenGun].BulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(firePoint.up * guns[chosenGun].BulletForce, ForceMode2D.Impulse);
     }
-    
+
 }

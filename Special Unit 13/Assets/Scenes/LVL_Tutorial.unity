@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a55d7b4cd7f3048b35ccb94c63c18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: 525204090}
   mainCamera: {fileID: 519420031}
   moveSpeed: 5
 --- !u!50 &525204090
@@ -386,8 +387,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &525204091
-BoxCollider2D:
+--- !u!70 &525204091
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -399,19 +400,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.000001935782, y: -0.23851308}
+  m_Size: {x: 1.2699468, y: 0.7845539}
+  m_Direction: 1
 --- !u!114 &525204092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,9 +415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51f007c1c37a6144a74a2dbd04a8290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guns:
+  - {fileID: 321614717210454794, guid: fe0d635dee656c74d81bee5e2a0a0d38, type: 3}
+  - {fileID: 321614717210454794, guid: a46cfe980adf41a42984f42c1d0ef359, type: 3}
   firePoint: {fileID: 1565316107}
-  bulletPrefab: {fileID: 2893144473902653013, guid: 944685df4fd91ce4185e6201d5b616bb, type: 3}
-  bulletForce: 20
+  chosenGun: 0
 --- !u!1 &594729676
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +491,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfeee45e81d31fd488d595e1e81516f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -524,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &769581622
 Transform:
   m_ObjectHideFlags: 0

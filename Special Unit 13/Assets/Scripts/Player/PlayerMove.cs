@@ -30,6 +30,8 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+
+
     private void OnDisable()
     {
         movement.Disable();
@@ -64,6 +66,6 @@ public class PlayerMove : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext obj)
     {
-        this.GetComponent<Shooting>().Shoot();
+        this.GetComponent<Shooting>().Shoot(obj.ReadValueAsButton());
     }
 }
