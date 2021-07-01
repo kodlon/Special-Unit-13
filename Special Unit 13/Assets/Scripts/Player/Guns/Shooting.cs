@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private Gun[] guns;
+    [SerializeField] private GunScriptableObject[] guns;
     [SerializeField] private Transform firePoint;
     [SerializeField] private int chosenGun;
 

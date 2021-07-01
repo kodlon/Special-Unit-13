@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+[CreateAssetMenu(fileName = "Gun", 
+menuName = "ScriptableObjects/Guns", order = 0)]
+public class GunScriptableObject : ScriptableObject
 {
     [SerializeField] private Sprite playerSprite;
     [SerializeField] private Sprite cartridgeFirearms;
