@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 173956303}
   - component: {fileID: 173956302}
   m_Layer: 0
-  m_Name: Static Sprite
-  m_TagString: Untagged
+  m_Name: Wall
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,8 +417,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guns:
   - {fileID: 11400000, guid: 55466296a26a0854789f87f6d01b400c, type: 2}
+  - {fileID: 11400000, guid: 80e4a7f8c2f09464a849ab2f74b1ff20, type: 2}
+  - {fileID: 11400000, guid: c9f80e94e55577a4da4471df5462bcca, type: 2}
   firePoint: {fileID: 1565316107}
-  chosenGun: 0
+  chosenGun: 2
 --- !u!1 &594729676
 GameObject:
   m_ObjectHideFlags: 0

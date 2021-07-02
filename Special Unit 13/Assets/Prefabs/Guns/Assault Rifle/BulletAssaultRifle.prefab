@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4376836849423544942}
   - component: {fileID: 7368025712012620519}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletAssaultRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &7368025712012620519
 MonoBehaviour:
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e60f88d5140ab542b98fc00316bc4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 7285759447365213743, guid: 8e4d1f14de09ecd458cf8a8ef207d3e8, type: 3}
   damage: 0
-  bulletForce: 10
-  bulletDestroyTime: 0.1
+  bulletForce: 25
+  bulletDestroyTime: 3
+  hitEffect: {fileID: 7285759447365213743, guid: 78245c43d3fe41b47a04bc0a895cc8a3, type: 3}
   effectDestroyTime: 0.1

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5017117207056790209}
   - component: {fileID: 3309063231067893109}
   m_Layer: 0
-  m_Name: HitEffect
+  m_Name: HitEffectAssaultRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

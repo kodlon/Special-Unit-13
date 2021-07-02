@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] GameObject hitEffect;
 
     [SerializeField] private int damage;
     [SerializeField] private float bulletForce;
     [SerializeField] private float bulletDestroyTime;
+    [SerializeField] GameObject hitEffect;
     [SerializeField] private float effectDestroyTime;
 
     public float BulletForce { get => bulletForce; set => bulletForce = value; }
-    
+
     private void Start()
     {
         Destroy(gameObject, bulletDestroyTime);
@@ -20,8 +20,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, effectDestroyTime);
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("wall"))
+        {
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, effectDestroyTime);
+            Destroy(gameObject);
+        }
     }
 }
