@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,8 +26,6 @@ public class PlayerMove : MonoBehaviour
         playerInputActions.Player.Shooting.Enable();
 
     }
-
-
 
     private void OnDisable()
     {

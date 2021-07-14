@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -10,7 +9,8 @@ public class Shooting : MonoBehaviour
     private bool isShooting;
     Coroutine lastRoutine = null;
     Coroutine endRoutine = null;
-    //Test git
+
+
     public void Shoot(bool pressed)
     {
         if (pressed && !isShooting)
@@ -54,5 +54,4 @@ public class Shooting : MonoBehaviour
         yield return new WaitForSeconds(guns[chosenGun].FireRate);
         isShooting = false;
     }
-
 }
