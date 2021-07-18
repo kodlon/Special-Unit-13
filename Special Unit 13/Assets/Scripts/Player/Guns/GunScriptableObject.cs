@@ -12,7 +12,7 @@ public class GunScriptableObject : ScriptableObject
     [SerializeField] private int amountOfBullet; //how many bullets spawn in one shot
     [SerializeField] private float fireRate; //FIXME: delete timebeforeshoot, and make bool. FireRate before shoot or after
     [SerializeField] private float timeBeforeShoot;
-    [Range(1f, 2f)] [SerializeField] private float accuracy = 1f;
+    [Range(0f, 10f)] [SerializeField] private float accuracy;
     [SerializeField] private bool automatic;
 
     public Bullet BulletPrefab { get => bulletPrefab; private set => bulletPrefab = value; }

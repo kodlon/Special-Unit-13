@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+//Comment all
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private GunScriptableObject[] guns;
@@ -31,15 +31,18 @@ public class Shooting : MonoBehaviour
         {
             yield return new WaitForSeconds(guns[chosenGun].TimeBeforeShoot); //FIXME: Gun died when have this var
 
+            float accuracy = Random.Range(-guns[chosenGun].Accuracy, guns[chosenGun].Accuracy);
+            firePoint.Rotate(new Vector3(0, 0, accuracy), Space.Self);
+
             for (int i = 0; i < guns[chosenGun].AmountOfBullet; i++)
             {
                 GameObject bullet = Instantiate(guns[chosenGun].BulletPrefab.gameObject, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * guns[chosenGun].BulletPrefab.BulletForce, ForceMode2D.Impulse);
             }
+            firePoint.Rotate(new Vector3(0, 0, -accuracy), Space.Self);
 
             yield return endRoutine = StartCoroutine(EndShoot());
-
 
             if (!guns[chosenGun].Automatic)
             {
